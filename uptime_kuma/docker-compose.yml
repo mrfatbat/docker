@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  uptime-kuma:
+    image: elestio/uptime-kuma
+    ports:
+      - "8081:3001"
+    environment:
+      - DB_TYPE=sqlite
+      - DB_STORAGE=C:\Users\JimLaw\docker\uptime_kuma\uptime-kuma.db
+      - SOFTWARE_VERSION_TAG=latest
+      - URL=https://fatbat.org
+    volumes:
+      - C:\Users\JimLaw\docker\uptime_kuma\:/app/data
+    restart: always
+    healthcheck:
+      disable: true
